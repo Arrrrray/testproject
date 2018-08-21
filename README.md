@@ -44,7 +44,7 @@
         "sign": "LKelkoo34o9ukm"    # 签名
     }
     Note：price一定是两位小数的字符串，比如5元钱应该是"5.00"
-    sign：签名方式采用微信同样的方式即可，到时候我们会给出来签名的具体方式
+    sign：签名方式采用微信同样的方式即可,汉光会给出来一个app_id和secret
     
     要求返回：
     如果成功：
@@ -61,11 +61,35 @@
 
     请求方式：POST
     参数：
-      {
-        “order_id”: “12345”         # 自动售货机订单号
-        "price": 341.97,           # 支付金额
-        ”sign：“LKelkoo34o9ukm"    # 签名
-      }
+    {
+        "order_id": "12345",        # 自动售货机的订单号
+        "app_id": "124rwefsdfz",    # 汉光分配的app_id
+        "nonce": "uewfsdfzdfz",     # 随机字符串
+        "timestamp": 12435300,      # 时间戳
+        "sign": "DRTGH456798"       # 签名
+    }
 
       Note: 出货失败后，自动售货机推送一条消息到汉光，汉光做自动退款
-      sign：签名方式采用微信同样的方式即可，到时候我们会给出来签名的具体方式
+      sign：签名方式采用微信同样的方式即可,汉光会给出来一个app_id和secret
+    
+    返回结果: 
+    成功:  返回状态为 HTTP_200_OK
+        {
+            "message": "退款成功，请注意查收"
+        }
+
+    失败: 返回状态为 HTTP_400_BAD_REQUEST
+        POST内容错误
+            {
+                "message": "验证失败",
+                "errors": [
+                    {
+                        "message": "['不正确的app_id']",
+                        "field": "non_field_errors"
+                    }
+                ]
+            }
+        退款失败
+            {
+                "message": "退款失败，请联系人工服务"
+            }
