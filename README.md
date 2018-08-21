@@ -58,7 +58,7 @@
 
 
 #### 3 退款接口 ####
-
+    api: /api/vending_machine/refund/
     请求方式：POST
     参数：
     {
