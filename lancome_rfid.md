@@ -39,18 +39,28 @@
     二维码规则:
       参数(参数同上面生成签名的参数):
         {
-          "app_id": "app_343434"        # 汉光分配的app_id
-          "order_id": "12345",          # rfid订单号
-          "products": "123,124,125",    # 商品ID(多个商品用逗号隔开)
-          "source": "lancome_rfid"      # 固定参数
-          "timestamp": "784583423",     # 时间戳
-          "nonce": "Djei341DKE"         # 一次性字符串
-          "sign": "dde847KJke",         # 签名
-          "jump_type": "lancome_rfid"   # 固定参数(不参与签名, 该参数为前端小程序路由跳转使用)
+          "app_id": "app_343434"            # 汉光分配的app_id
+          "order_id": "12345",              # rfid订单号
+          "products": "(1232,1)-(3442,2)",  # 汉光商品ID
+          "source": "lancome_rfid"          # 固定参数
+          "timestamp": "784583423",         # 时间戳
+          "nonce": "Djei341DKE"             # 一次性字符串
+          "sign": "dde847KJke",             # 签名
+          "jump_type": "lancome_rfid"       # 固定参数(不参与签名, 该参数为前端小程序路由跳转使用)
         }
-        类似微信的签名,
-        1. 将所有参数按照 key 从小到大排序（字典序），使用键值对的格式（即key1=value1&key2=value2…）拼接成字符串
-        2. 对生成的字符串进行 MD5, 然后大写获得 sign
+        二维码内容拼接(测试系统)
+        https://sparrow.dongyouliang.com/wx-app/jumpBridge?
+        jump_type=lancome_rfid&order_id=12345&products=(1232,1)-(3442,2)&app_id=app_1534851431&timestamp=1534853718&nonce=23455&sign=A1D05398BE89B4906006364DE2725579
+
+        二维码内容拼接(正式系统)
+        https://sparrow.hanguangbaihuo.com/wx-app/jumpBridge?
+        jump_type=lancome_rfid&order_id=12345&products=(1232,1)-(3442,2)&app_id=app_1534851431&timestamp=1534853718&nonce=23455&sign=A1D05398BE89B4906006364DE2725579
+
+        将这个url生成二维码供用户扫码使用
+        Note:
+            测试和正式的区别是: 前缀不同
+            测试系统: https://sparrow.dongyouliang.com/wx-app/jumpBridge
+            正式系统: https://sparrow.hanguangbaihuo.com/wx-app/jumpBridge
 
 #### 2 支付成功后，汉光百货推送支付成功的消息 ####
 
