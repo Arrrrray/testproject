@@ -67,11 +67,13 @@
     请求方式：POST
     参数：
       {
-        "order_id": "12345",       # rfid订单号
-        "price": "341.97",         # 支付金额
-        "timestamp": "784583423",  # 时间戳
-        "nonce": "Djei341DKE"      # 一次性字符串
-        "sign": "LKelkoo34o9ukm"   # 签名
+        "app_id": "app_343434",           # 汉光分配的app_id
+        "order_id": "12345",              # rfid订单号
+        "hg_order_id": "190208999000001", # 汉光的订单号
+        "price": "341.97",                # 支付金额
+        "timestamp": "784583423",         # 时间戳
+        "nonce": "Djei341DKE"             # 一次性字符串
+        "sign": "LKelkoo34o9ukm"          # 签名
       }
 
       sign：签名算法同上
