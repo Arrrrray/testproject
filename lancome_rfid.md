@@ -34,7 +34,7 @@
           多个商品: (132438,1)-(128899,2)  # 多个商品之间是用“-”隔开
 
     2 将上述参数按照key值进行排序后，按照key=value的格式拼接成一个字符串"app_id=app_1534851431&app_secret=cdke8945lk92dc5&nonce=23455&products=(1232,1)-(3442,2)&timestamp=1534853718&order_id=12345"
-    3 对这个字符串取MD5，然后大写,可获得类似: A1D05398BE89B4906006364DE2725579 的签名
+    3 对这个字符串取MD5，然后大写,可获得类似: A1D05398BE89B4906006364DE2725579(只是例子，不是上面的加密结果) 的签名
 
     二维码规则:
       参数(参数同上面生成签名的参数):
@@ -46,15 +46,15 @@
           "timestamp": "784583423",         # 时间戳
           "nonce": "Djei341DKE"             # 一次性字符串
           "sign": "dde847KJke",             # 签名
-          "jump_type": "lancome_rfid"       # 固定参数(不参与签名, 该参数为前端小程序路由跳转使用)
+          "jump_type": "rfid"       # 固定参数(不参与签名, 该参数为前端小程序路由跳转使用)
         }
         二维码内容拼接(测试系统)
         https://sparrow.dongyouliang.com/wx-app/jumpBridge?
-        jump_type=lancome_rfid&order_id=12345&products=(1232,1)-(3442,2)&app_id=app_1534851431&timestamp=1534853718&nonce=23455&sign=A1D05398BE89B4906006364DE2725579
+        jump_type=rfid&order_id=12345&products=(1232,1)-(3442,2)&app_id=app_1534851431&timestamp=1534853718&nonce=23455&sign=A1D05398BE89B4906006364DE2725579
 
         二维码内容拼接(正式系统)
         https://sparrow.hanguangbaihuo.com/wx-app/jumpBridge?
-        jump_type=lancome_rfid&order_id=12345&products=(1232,1)-(3442,2)&app_id=app_1534851431&timestamp=1534853718&nonce=23455&sign=A1D05398BE89B4906006364DE2725579
+        jump_type=rfid&order_id=12345&products=(1232,1)-(3442,2)&app_id=app_1534851431&timestamp=1534853718&nonce=23455&sign=A1D05398BE89B4906006364DE2725579
 
         将这个url生成二维码供用户扫码使用
         Note:
